@@ -50,3 +50,10 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
+# Jetbrains IDE config files
+/.idea/
+
+#Env variables
+.env
+.env.local

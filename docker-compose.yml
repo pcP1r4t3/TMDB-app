@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  mariadb:
+    image: docker.io/bitnami/mariadb:10.6
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+  app:
+    image: docker.io/bitnami/symfony:6.0.14
+    ports:
+      - '8000:8000'
+    environment:
+      - SYMFONY_DATABASE_HOST=${SYMFONY_DATABASE_HOST}
+      - SYMFONY_DATABASE_PORT_NUMBER=${SYMFONY_DATABASE_PORT_NUMBER}
+      - SYMFONY_DATABASE_USER=${SYMFONY_DATABASE_USER}
+      - SYMFONY_DATABASE_PASSWORD=${SYMFONY_DATABASE_PASSWORD}
+      - SYMFONY_DATABASE_NAME=${SYMFONY_DATABASE_NAME}
+    volumes:
+      - './app:/app'
+    depends_on:
+      - mariadb
+

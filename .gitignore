@@ -53,3 +53,7 @@
 
 # Jetbrains IDE config files
 /.idea/
+
+#Env variables
+.env
+.env.local
